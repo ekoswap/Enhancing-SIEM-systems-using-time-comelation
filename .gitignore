@@ -1,16 +1,28 @@
+# Virtual environment
 .venv/
+
+# Python cache
 __pycache__/
 *.pyc
+
+# Jupyter cache
 .ipynb_checkpoints/
 
+# OS files
+.DS_Store
+Thumbs.db
+
+# Raw and processed data
 data/raw/
 data/processed/
-outputs/
 
+# Compressed files
 *.zip
 *.gz
 *.7z
 *.rar
 
-.DS_Store
-Thumbs.db
+# Keep outputs tracked, but ignore optional generated subfolders if empty/noisy
+outputs/logs/
+outputs/tables/
+outputs/charts/

@@ -1,0 +1,4 @@
+file_name,input_events,after_filter,after_dedup,after_aggregation,event_reduction,event_reduction_pct,before_correlation,after_correlation,correlation_change,correlation_change_pct
+auth_sample_late.txt,10000,9519,9519,9439,80,0.84,360,337,-23,-6.39
+auth_sample_chunk2.txt,10000,9587,9587,9508,79,0.82,313,298,-15,-4.79
+auth_sample_chunk3.txt,10000,9423,9423,9371,52,0.55,398,388,-10,-2.51

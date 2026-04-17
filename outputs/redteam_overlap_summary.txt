@@ -1,0 +1,36 @@
+Redteam Overlap Summary
+========================================
+
+Time overlap:
+- Auth sample range: 150879 -> 150929
+- Redteam range: 150885 -> 2557047
+- Auth rows inside redteam time range: 9006
+
+User overlap:
+- Unique auth src_user count: 1974
+- Unique redteam user count: 104
+- Common users: 15
+- Example common users: ['U12@DOM1', 'U13@DOM1', 'U162@DOM1', 'U1653@DOM1', 'U24@DOM1', 'U250@DOM1', 'U293@DOM1', 'U314@DOM1', 'U453@DOM1', 'U4856@DOM1', 'U524@DOM1', 'U620@DOM1', 'U66@DOM1', 'U78@DOM1', 'U825@DOM1']
+
+Computer overlap:
+- Unique auth computers: 1602
+- Unique redteam computers: 305
+- Common computers: 86
+- Example common computers: ['C10', 'C1003', 'C1015', 'C1042', 'C1065', 'C1085', 'C1089', 'C1119', 'C1191', 'C13713', 'C1382', 'C1432', 'C1477', 'C1479', 'C148', 'C15', 'C1503', 'C1570', 'C1581', 'C1611']
+
+Direct row-level matches:
+- Candidate row matches: 1
+
+First direct match:
+- timestamp_auth: 150885
+- timestamp_red: 150885
+- time_diff: 0
+- src_user: U620@DOM1
+- src_computer: C17693
+- dst_computer: C1003
+
+Interpretation:
+The selected authentication sample is not only temporally aligned with the beginning of red-team activity,
+but also overlaps with red-team users and computers.
+A direct row-level match was observed at timestamp 150885, which supports the relevance of the selected sample
+for exploratory pre-correlation analysis.

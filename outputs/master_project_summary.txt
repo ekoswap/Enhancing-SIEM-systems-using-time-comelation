@@ -1,0 +1,160 @@
+Master Project Summary
+============================================================
+
+This file combines the main experimental summaries generated during development.
+
+============================================================
+Pipeline Summary
+============================================================
+
+LANL Pre-Correlation Pipeline Summary
+========================================
+
+Input auth events: 10000
+After normalization: 10000
+After filtering: 9519
+After exact deduplication: 9519
+After relaxed temporal aggregation: 9439
+
+Event reduction before vs after aggregation: 80 (0.84%)
+
+Baseline correlation results BEFORE aggregation: 360
+Baseline correlation results AFTER aggregation: 337
+Change in correlation result count: -23 (-6.39%)
+
+Chosen strategy: relaxed aggregation
+Chosen time window: 5
+
+
+============================================================
+Multi-Chunk Experiment Summary
+============================================================
+
+Multi-Chunk Experiment Summary
+========================================
+
+Number of tested chunks: 3
+
+Per-chunk results:
+- auth_sample_late.txt
+  Input events: 10000
+  After aggregation: 9439
+  Event reduction: 80 (0.84%)
+  Correlation before: 360
+  Correlation after: 337
+  Correlation change: -23 (-6.39%)
+
+- auth_sample_chunk2.txt
+  Input events: 10000
+  After aggregation: 9508
+  Event reduction: 79 (0.82%)
+  Correlation before: 313
+  Correlation after: 298
+  Correlation change: -15 (-4.79%)
+
+- auth_sample_chunk3.txt
+  Input events: 10000
+  After aggregation: 9371
+  Event reduction: 52 (0.55%)
+  Correlation before: 398
+  Correlation after: 388
+  Correlation change: -10 (-2.51%)
+
+Overall averages:
+- Average event reduction: 0.74%
+- Average correlation change: -4.56%
+
+Best observed reductions:
+- Strongest event reduction: auth_sample_late.txt (0.84%)
+- Strongest correlation reduction: auth_sample_late.txt (-6.39%)
+
+Interpretation:
+The relaxed temporal aggregation strategy consistently reduced the event stream across multiple LANL chunks.
+This reduction was followed by repeated decreases in baseline correlation outputs.
+These results support the project direction of applying pre-correlation reduction before downstream correlation.
+
+
+============================================================
+Final Experiment Decision Summary
+============================================================
+
+Final Experiment Decision Summary
+========================================
+
+Chosen filtering strategy:
+- Improved filter version
+- Removes ScreenLock_Success, AuthMap_Success, and ANONYMOUS LOGON rows
+
+Reason:
+- It cleans the event stream much more effectively than the old filter
+- It reduced low-value events while preserving the positive effect on downstream correlation
+
+Chosen aggregation strategy:
+- Relaxed temporal aggregation
+- Grouping key: src_user + dst_computer + event_type
+
+Chosen time window:
+- 5
+
+Reason:
+- The strict version was too restrictive and produced limited reduction
+- The relaxed version gave more meaningful stream compaction
+- Increasing the time window did not improve results, so 5 was kept as a simple and stable choice
+
+Observed results on the main chunk:
+- After filtering: 9519
+- After relaxed aggregation: 9439
+- Aggregation reduction: 80 (0.84%)
+- Correlation before: 360
+- Correlation after: 337
+- Correlation change: -23 (-6.39%)
+
+Observed results across 3 chunks:
+- Average event reduction: 0.74%
+- Average correlation reduction: -4.56%
+
+Final conclusion:
+The project direction is supported by repeated experimental results on LANL authentication chunks.
+The selected pre-correlation pipeline reduces the stream before baseline correlation and consistently decreases downstream correlation outputs.
+
+
+============================================================
+Redteam Overlap Summary
+============================================================
+
+Redteam Overlap Summary
+========================================
+
+Time overlap:
+- Auth sample range: 150879 -> 150929
+- Redteam range: 150885 -> 2557047
+- Auth rows inside redteam time range: 9006
+
+User overlap:
+- Unique auth src_user count: 1974
+- Unique redteam user count: 104
+- Common users: 15
+- Example common users: ['U12@DOM1', 'U13@DOM1', 'U162@DOM1', 'U1653@DOM1', 'U24@DOM1', 'U250@DOM1', 'U293@DOM1', 'U314@DOM1', 'U453@DOM1', 'U4856@DOM1', 'U524@DOM1', 'U620@DOM1', 'U66@DOM1', 'U78@DOM1', 'U825@DOM1']
+
+Computer overlap:
+- Unique auth computers: 1602
+- Unique redteam computers: 305
+- Common computers: 86
+- Example common computers: ['C10', 'C1003', 'C1015', 'C1042', 'C1065', 'C1085', 'C1089', 'C1119', 'C1191', 'C13713', 'C1382', 'C1432', 'C1477', 'C1479', 'C148', 'C15', 'C1503', 'C1570', 'C1581', 'C1611']
+
+Direct row-level matches:
+- Candidate row matches: 1
+
+First direct match:
+- timestamp_auth: 150885
+- timestamp_red: 150885
+- time_diff: 0
+- src_user: U620@DOM1
+- src_computer: C17693
+- dst_computer: C1003
+
+Interpretation:
+The selected authentication sample is not only temporally aligned with the beginning of red-team activity,
+but also overlaps with red-team users and computers.
+A direct row-level match was observed at timestamp 150885, which supports the relevance of the selected sample
+for exploratory pre-correlation analysis.

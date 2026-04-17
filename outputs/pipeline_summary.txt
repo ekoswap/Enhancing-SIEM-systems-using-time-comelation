@@ -1,0 +1,17 @@
+LANL Pre-Correlation Pipeline Summary
+========================================
+
+Input auth events: 10000
+After normalization: 10000
+After filtering: 9519
+After exact deduplication: 9519
+After relaxed temporal aggregation: 9439
+
+Event reduction before vs after aggregation: 80 (0.84%)
+
+Baseline correlation results BEFORE aggregation: 360
+Baseline correlation results AFTER aggregation: 337
+Change in correlation result count: -23 (-6.39%)
+
+Chosen strategy: relaxed aggregation
+Chosen time window: 5

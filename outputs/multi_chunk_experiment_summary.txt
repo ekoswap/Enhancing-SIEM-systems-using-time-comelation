@@ -1,0 +1,42 @@
+Multi-Chunk Experiment Summary
+========================================
+
+Number of tested chunks: 3
+
+Per-chunk results:
+- auth_sample_late.txt
+  Input events: 10000
+  After aggregation: 9439
+  Event reduction: 80 (0.84%)
+  Correlation before: 360
+  Correlation after: 337
+  Correlation change: -23 (-6.39%)
+
+- auth_sample_chunk2.txt
+  Input events: 10000
+  After aggregation: 9508
+  Event reduction: 79 (0.82%)
+  Correlation before: 313
+  Correlation after: 298
+  Correlation change: -15 (-4.79%)
+
+- auth_sample_chunk3.txt
+  Input events: 10000
+  After aggregation: 9371
+  Event reduction: 52 (0.55%)
+  Correlation before: 398
+  Correlation after: 388
+  Correlation change: -10 (-2.51%)
+
+Overall averages:
+- Average event reduction: 0.74%
+- Average correlation change: -4.56%
+
+Best observed reductions:
+- Strongest event reduction: auth_sample_late.txt (0.84%)
+- Strongest correlation reduction: auth_sample_late.txt (-6.39%)
+
+Interpretation:
+The relaxed temporal aggregation strategy consistently reduced the event stream across multiple LANL chunks.
+This reduction was followed by repeated decreases in baseline correlation outputs.
+These results support the project direction of applying pre-correlation reduction before downstream correlation.
