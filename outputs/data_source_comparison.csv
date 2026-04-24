@@ -1,0 +1,5 @@
+source,role,status,key_strategy,strength,reason
+auth,main prototype path,adopted,improved filtering + relaxed temporal aggregation,strongest,"Provided the clearest end-to-end pre-correlation pipeline, repeated reduction in correlation outputs, and stable preservation of redteam-related context."
+proc,exploratory extension,strong exploratory extension,End-only filtering,high,"Showed repeated gains in redteam-related concentration across multiple chunks, but remained secondary to auth."
+flows,exploratory extension,strong exploratory extension,duration > 0 + aggregation by destination_computer and protocol,high,"Showed repeated gains in redteam-related concentration across eight chunks with a generalizable filtering rule, but remained less mature than auth."
+dns,exploratory source,not adopted,not selected,low,"Had temporal overlap and computer overlap, but did not provide strong enough direct evidence in the explored sample."

@@ -1,0 +1,74 @@
+Redteam-Zone Preservation Summary
+========================================
+
+Number of tested chunks: 8
+
+Per-chunk results:
+- auth_redteam_zone_chunk_1.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7445 (74.45%)
+  Aggregated total: 9476
+  Aggregated redteam-related: 7022 (74.10%)
+  Change in redteam-related percentage: -0.35
+
+- auth_redteam_zone_chunk_2.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7522 (75.22%)
+  Aggregated total: 9534
+  Aggregated redteam-related: 7138 (74.87%)
+  Change in redteam-related percentage: -0.35
+
+- auth_redteam_zone_chunk_3.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7391 (73.91%)
+  Aggregated total: 9401
+  Aggregated redteam-related: 6927 (73.68%)
+  Change in redteam-related percentage: -0.23
+
+- auth_redteam_zone_chunk_4.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7136 (71.36%)
+  Aggregated total: 9549
+  Aggregated redteam-related: 6794 (71.15%)
+  Change in redteam-related percentage: -0.21
+
+- auth_redteam_zone_chunk_5.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7309 (73.09%)
+  Aggregated total: 9355
+  Aggregated redteam-related: 6895 (73.70%)
+  Change in redteam-related percentage: 0.61
+
+- auth_redteam_zone_chunk_6.txt
+  Normalized total: 10000
+  Normalized redteam-related: 6748 (67.48%)
+  Aggregated total: 9406
+  Aggregated redteam-related: 6417 (68.22%)
+  Change in redteam-related percentage: 0.74
+
+- auth_redteam_zone_chunk_7.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7278 (72.78%)
+  Aggregated total: 9532
+  Aggregated redteam-related: 6951 (72.92%)
+  Change in redteam-related percentage: 0.14
+
+- auth_redteam_zone_chunk_8.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7428 (74.28%)
+  Aggregated total: 9482
+  Aggregated redteam-related: 7107 (74.95%)
+  Change in redteam-related percentage: 0.67
+
+Overall averages:
+- Average normalized redteam-related %: 72.82%
+- Average aggregated redteam-related %: 72.95%
+- Average percentage change: 0.13
+
+Observed extremes:
+- Largest decrease: auth_redteam_zone_chunk_1.txt (-0.35)
+- Largest increase: auth_redteam_zone_chunk_6.txt (0.74)
+
+Interpretation:
+Across eight redteam-zone authentication chunks, the selected pre-correlation pipeline preserved the proportion of redteam-related context with only small variation.
+This suggests that the event reduction process does not substantially distort the attack-relevant context in redteam-aligned regions of the LANL data.

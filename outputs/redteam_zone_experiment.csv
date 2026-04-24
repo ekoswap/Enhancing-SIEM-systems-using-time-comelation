@@ -1,0 +1,9 @@
+file_name,input_events,after_filter,after_dedup,after_aggregation,event_reduction,event_reduction_pct,before_correlation,after_correlation,correlation_change,correlation_change_pct
+auth_redteam_zone_chunk_1.txt,10000,9556,9556,9476,80,0.84,350,322,-28,-8.0
+auth_redteam_zone_chunk_2.txt,10000,9615,9615,9534,81,0.84,313,295,-18,-5.75
+auth_redteam_zone_chunk_3.txt,10000,9467,9467,9401,66,0.7,280,267,-13,-4.64
+auth_redteam_zone_chunk_4.txt,10000,9600,9600,9549,51,0.53,259,247,-12,-4.63
+auth_redteam_zone_chunk_5.txt,10000,9408,9408,9355,53,0.56,313,296,-17,-5.43
+auth_redteam_zone_chunk_6.txt,10000,9454,9454,9406,48,0.51,362,350,-12,-3.31
+auth_redteam_zone_chunk_7.txt,10000,9588,9588,9532,56,0.58,371,357,-14,-3.77
+auth_redteam_zone_chunk_8.txt,10000,9532,9532,9482,50,0.52,278,264,-14,-5.04

@@ -1,0 +1,82 @@
+PROC End-Only 8-Chunks Summary
+========================================
+
+Number of tested chunks: 8
+
+Per-chunk results:
+- proc_redteam_zone_chunk_1.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 10.50%
+  End-only total: 2286
+  End-only redteam-related %: 21.08%
+  Aggregated total: 1203
+  Aggregated redteam-related %: 19.95%
+
+- proc_redteam_zone_chunk_2.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 12.27%
+  End-only total: 2234
+  End-only redteam-related %: 24.26%
+  Aggregated total: 1088
+  Aggregated redteam-related %: 22.98%
+
+- proc_redteam_zone_chunk_3.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 9.76%
+  End-only total: 2166
+  End-only redteam-related %: 20.54%
+  Aggregated total: 1110
+  Aggregated redteam-related %: 18.38%
+
+- proc_redteam_zone_chunk_4.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 10.47%
+  End-only total: 2283
+  End-only redteam-related %: 21.29%
+  Aggregated total: 1126
+  Aggregated redteam-related %: 20.96%
+
+- proc_redteam_zone_chunk_5.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 12.30%
+  End-only total: 2401
+  End-only redteam-related %: 23.53%
+  Aggregated total: 1121
+  Aggregated redteam-related %: 23.55%
+
+- proc_redteam_zone_chunk_6.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 12.06%
+  End-only total: 2405
+  End-only redteam-related %: 23.28%
+  Aggregated total: 1102
+  Aggregated redteam-related %: 21.78%
+
+- proc_redteam_zone_chunk_7.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 12.57%
+  End-only total: 2638
+  End-only redteam-related %: 22.44%
+  Aggregated total: 1191
+  Aggregated redteam-related %: 20.91%
+
+- proc_redteam_zone_chunk_8.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 13.87%
+  End-only total: 2516
+  End-only redteam-related %: 26.23%
+  Aggregated total: 1125
+  Aggregated redteam-related %: 22.04%
+
+Overall averages:
+- Average baseline redteam-related %: 11.72%
+- Average end-only redteam-related %: 22.83%
+- Average aggregated redteam-related %: 21.32%
+
+Best observed values:
+- Best end-only chunk: proc_redteam_zone_chunk_8.txt (26.23%)
+- Best aggregated chunk: proc_redteam_zone_chunk_5.txt (23.55%)
+
+Interpretation:
+Across eight proc redteam-zone chunks, the End-only strategy consistently increased the concentration of redteam-related context compared with the raw baseline.
+After aggregation, the redteam-related proportion remained clearly higher than baseline, which supports PROC as a strong exploratory extension rather than a main prototype path.

@@ -1,0 +1,29 @@
+PROC Exploratory Summary
+========================================
+
+Exploration goal:
+Evaluate simple process-event strategies to see whether proc data can preserve redteam-related context in a useful way.
+
+Tested strategies:
+- baseline_raw: total_rows=10000, redteam_related_rows=1063, redteam_related_pct=10.63%
+- start_only: total_rows=7671, redteam_related_rows=562, redteam_related_pct=7.33%
+- start_only__agg_user_computer_process: total_rows=5607, redteam_related_rows=321, redteam_related_pct=5.72%
+- start_only__agg_computer_process: total_rows=5596, redteam_related_rows=320, redteam_related_pct=5.72%
+- end_only: total_rows=2329, redteam_related_rows=501, redteam_related_pct=21.51%
+- end_only__agg_user_computer_process: total_rows=1193, redteam_related_rows=248, redteam_related_pct=20.79%
+- end_only__agg_computer_process: total_rows=1177, redteam_related_rows=243, redteam_related_pct=20.65%
+- all_events__agg_user_computer_process: total_rows=5883, redteam_related_rows=379, redteam_related_pct=6.44%
+- all_events__agg_computer_process: total_rows=5782, redteam_related_rows=349, redteam_related_pct=6.04%
+
+Best observed strategy:
+- Strategy: end_only
+- Total rows: 2329
+- Redteam-related rows: 501
+- Redteam-related percentage: 21.51%
+
+Interpretation:
+The End-only strategy preserved the highest proportion of redteam-related context in the explored proc sample.
+This suggests that process data may support the project as a secondary exploratory extension when handled with an event-state-aware strategy.
+
+Decision:
+PROC is not promoted to the main prototype pipeline, but it is considered a promising exploratory extension.

@@ -1,0 +1,39 @@
+Redteam Preservation Multi-Chunk Summary
+========================================
+
+Number of tested chunks: 3
+
+Per-chunk results:
+- auth_sample_late.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7315 (73.15%)
+  Aggregated total: 9439
+  Aggregated redteam-related: 6859 (72.67%)
+  Change in redteam-related percentage: -0.48
+
+- auth_sample_chunk2.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7712 (77.12%)
+  Aggregated total: 9508
+  Aggregated redteam-related: 7302 (76.80%)
+  Change in redteam-related percentage: -0.32
+
+- auth_sample_chunk3.txt
+  Normalized total: 10000
+  Normalized redteam-related: 6868 (68.68%)
+  Aggregated total: 9371
+  Aggregated redteam-related: 6504 (69.41%)
+  Change in redteam-related percentage: 0.73
+
+Overall averages:
+- Average normalized redteam-related %: 72.98%
+- Average aggregated redteam-related %: 72.96%
+- Average percentage change: -0.02
+
+Observed extremes:
+- Largest decrease: auth_sample_late.txt (-0.48)
+- Largest increase: auth_sample_chunk3.txt (0.73)
+
+Interpretation:
+Across multiple authentication chunks, the pre-correlation pipeline preserved the proportion of redteam-related context with only minimal variation.
+This suggests that event reduction was achieved without substantially distorting the attack-relevant context.

@@ -158,3 +158,478 @@ The selected authentication sample is not only temporally aligned with the begin
 but also overlaps with red-team users and computers.
 A direct row-level match was observed at timestamp 150885, which supports the relevance of the selected sample
 for exploratory pre-correlation analysis.
+
+
+============================================================
+Redteam Preservation Multi-Chunk Summary
+============================================================
+
+Redteam Preservation Multi-Chunk Summary
+========================================
+
+Number of tested chunks: 3
+
+Per-chunk results:
+- auth_sample_late.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7315 (73.15%)
+  Aggregated total: 9439
+  Aggregated redteam-related: 6859 (72.67%)
+  Change in redteam-related percentage: -0.48
+
+- auth_sample_chunk2.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7712 (77.12%)
+  Aggregated total: 9508
+  Aggregated redteam-related: 7302 (76.80%)
+  Change in redteam-related percentage: -0.32
+
+- auth_sample_chunk3.txt
+  Normalized total: 10000
+  Normalized redteam-related: 6868 (68.68%)
+  Aggregated total: 9371
+  Aggregated redteam-related: 6504 (69.41%)
+  Change in redteam-related percentage: 0.73
+
+Overall averages:
+- Average normalized redteam-related %: 72.98%
+- Average aggregated redteam-related %: 72.96%
+- Average percentage change: -0.02
+
+Observed extremes:
+- Largest decrease: auth_sample_late.txt (-0.48)
+- Largest increase: auth_sample_chunk3.txt (0.73)
+
+Interpretation:
+Across multiple authentication chunks, the pre-correlation pipeline preserved the proportion of redteam-related context with only minimal variation.
+This suggests that event reduction was achieved without substantially distorting the attack-relevant context.
+
+
+============================================================
+Redteam-Zone Experiment Summary
+============================================================
+
+Redteam-Zone Experiment Summary
+========================================
+
+Number of tested chunks: 8
+
+Per-chunk results:
+- auth_redteam_zone_chunk_1.txt
+  Input events: 10000
+  After filter: 9556
+  After aggregation: 9476
+  Event reduction: 80 (0.84%)
+  Correlation before: 350
+  Correlation after: 322
+  Correlation change: -28 (-8.00%)
+
+- auth_redteam_zone_chunk_2.txt
+  Input events: 10000
+  After filter: 9615
+  After aggregation: 9534
+  Event reduction: 81 (0.84%)
+  Correlation before: 313
+  Correlation after: 295
+  Correlation change: -18 (-5.75%)
+
+- auth_redteam_zone_chunk_3.txt
+  Input events: 10000
+  After filter: 9467
+  After aggregation: 9401
+  Event reduction: 66 (0.70%)
+  Correlation before: 280
+  Correlation after: 267
+  Correlation change: -13 (-4.64%)
+
+- auth_redteam_zone_chunk_4.txt
+  Input events: 10000
+  After filter: 9600
+  After aggregation: 9549
+  Event reduction: 51 (0.53%)
+  Correlation before: 259
+  Correlation after: 247
+  Correlation change: -12 (-4.63%)
+
+- auth_redteam_zone_chunk_5.txt
+  Input events: 10000
+  After filter: 9408
+  After aggregation: 9355
+  Event reduction: 53 (0.56%)
+  Correlation before: 313
+  Correlation after: 296
+  Correlation change: -17 (-5.43%)
+
+- auth_redteam_zone_chunk_6.txt
+  Input events: 10000
+  After filter: 9454
+  After aggregation: 9406
+  Event reduction: 48 (0.51%)
+  Correlation before: 362
+  Correlation after: 350
+  Correlation change: -12 (-3.31%)
+
+- auth_redteam_zone_chunk_7.txt
+  Input events: 10000
+  After filter: 9588
+  After aggregation: 9532
+  Event reduction: 56 (0.58%)
+  Correlation before: 371
+  Correlation after: 357
+  Correlation change: -14 (-3.77%)
+
+- auth_redteam_zone_chunk_8.txt
+  Input events: 10000
+  After filter: 9532
+  After aggregation: 9482
+  Event reduction: 50 (0.52%)
+  Correlation before: 278
+  Correlation after: 264
+  Correlation change: -14 (-5.04%)
+
+Overall averages:
+- Average event reduction: 0.64%
+- Average correlation change: -5.07%
+
+Best observed reductions:
+- Strongest event reduction: auth_redteam_zone_chunk_1.txt (0.84%)
+- Strongest correlation reduction: auth_redteam_zone_chunk_1.txt (-8.00%)
+
+Interpretation:
+Across eight redteam-zone authentication chunks, the selected pre-correlation pipeline consistently reduced the event stream.
+This was repeatedly followed by reductions in baseline correlation outputs.
+These results strengthen the evidence that the chosen pipeline improves stream compactness before downstream correlation in redteam-relevant regions of the LANL data.
+
+
+============================================================
+Redteam-Zone Preservation Summary
+============================================================
+
+Redteam-Zone Preservation Summary
+========================================
+
+Number of tested chunks: 8
+
+Per-chunk results:
+- auth_redteam_zone_chunk_1.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7445 (74.45%)
+  Aggregated total: 9476
+  Aggregated redteam-related: 7022 (74.10%)
+  Change in redteam-related percentage: -0.35
+
+- auth_redteam_zone_chunk_2.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7522 (75.22%)
+  Aggregated total: 9534
+  Aggregated redteam-related: 7138 (74.87%)
+  Change in redteam-related percentage: -0.35
+
+- auth_redteam_zone_chunk_3.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7391 (73.91%)
+  Aggregated total: 9401
+  Aggregated redteam-related: 6927 (73.68%)
+  Change in redteam-related percentage: -0.23
+
+- auth_redteam_zone_chunk_4.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7136 (71.36%)
+  Aggregated total: 9549
+  Aggregated redteam-related: 6794 (71.15%)
+  Change in redteam-related percentage: -0.21
+
+- auth_redteam_zone_chunk_5.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7309 (73.09%)
+  Aggregated total: 9355
+  Aggregated redteam-related: 6895 (73.70%)
+  Change in redteam-related percentage: 0.61
+
+- auth_redteam_zone_chunk_6.txt
+  Normalized total: 10000
+  Normalized redteam-related: 6748 (67.48%)
+  Aggregated total: 9406
+  Aggregated redteam-related: 6417 (68.22%)
+  Change in redteam-related percentage: 0.74
+
+- auth_redteam_zone_chunk_7.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7278 (72.78%)
+  Aggregated total: 9532
+  Aggregated redteam-related: 6951 (72.92%)
+  Change in redteam-related percentage: 0.14
+
+- auth_redteam_zone_chunk_8.txt
+  Normalized total: 10000
+  Normalized redteam-related: 7428 (74.28%)
+  Aggregated total: 9482
+  Aggregated redteam-related: 7107 (74.95%)
+  Change in redteam-related percentage: 0.67
+
+Overall averages:
+- Average normalized redteam-related %: 72.82%
+- Average aggregated redteam-related %: 72.95%
+- Average percentage change: 0.13
+
+Observed extremes:
+- Largest decrease: auth_redteam_zone_chunk_1.txt (-0.35)
+- Largest increase: auth_redteam_zone_chunk_6.txt (0.74)
+
+Interpretation:
+Across eight redteam-zone authentication chunks, the selected pre-correlation pipeline preserved the proportion of redteam-related context with only small variation.
+This suggests that the event reduction process does not substantially distort the attack-relevant context in redteam-aligned regions of the LANL data.
+
+
+============================================================
+PROC Exploratory Summary
+============================================================
+
+PROC Exploratory Summary
+========================================
+
+Exploration goal:
+Evaluate simple process-event strategies to see whether proc data can preserve redteam-related context in a useful way.
+
+Tested strategies:
+- baseline_raw: total_rows=10000, redteam_related_rows=1063, redteam_related_pct=10.63%
+- start_only: total_rows=7671, redteam_related_rows=562, redteam_related_pct=7.33%
+- start_only__agg_user_computer_process: total_rows=5607, redteam_related_rows=321, redteam_related_pct=5.72%
+- start_only__agg_computer_process: total_rows=5596, redteam_related_rows=320, redteam_related_pct=5.72%
+- end_only: total_rows=2329, redteam_related_rows=501, redteam_related_pct=21.51%
+- end_only__agg_user_computer_process: total_rows=1193, redteam_related_rows=248, redteam_related_pct=20.79%
+- end_only__agg_computer_process: total_rows=1177, redteam_related_rows=243, redteam_related_pct=20.65%
+- all_events__agg_user_computer_process: total_rows=5883, redteam_related_rows=379, redteam_related_pct=6.44%
+- all_events__agg_computer_process: total_rows=5782, redteam_related_rows=349, redteam_related_pct=6.04%
+
+Best observed strategy:
+- Strategy: end_only
+- Total rows: 2329
+- Redteam-related rows: 501
+- Redteam-related percentage: 21.51%
+
+Interpretation:
+The End-only strategy preserved the highest proportion of redteam-related context in the explored proc sample.
+This suggests that process data may support the project as a secondary exploratory extension when handled with an event-state-aware strategy.
+
+Decision:
+PROC is not promoted to the main prototype pipeline, but it is considered a promising exploratory extension.
+
+
+============================================================
+PROC End-Only 8-Chunks Summary
+============================================================
+
+PROC End-Only 8-Chunks Summary
+========================================
+
+Number of tested chunks: 8
+
+Per-chunk results:
+- proc_redteam_zone_chunk_1.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 10.50%
+  End-only total: 2286
+  End-only redteam-related %: 21.08%
+  Aggregated total: 1203
+  Aggregated redteam-related %: 19.95%
+
+- proc_redteam_zone_chunk_2.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 12.27%
+  End-only total: 2234
+  End-only redteam-related %: 24.26%
+  Aggregated total: 1088
+  Aggregated redteam-related %: 22.98%
+
+- proc_redteam_zone_chunk_3.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 9.76%
+  End-only total: 2166
+  End-only redteam-related %: 20.54%
+  Aggregated total: 1110
+  Aggregated redteam-related %: 18.38%
+
+- proc_redteam_zone_chunk_4.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 10.47%
+  End-only total: 2283
+  End-only redteam-related %: 21.29%
+  Aggregated total: 1126
+  Aggregated redteam-related %: 20.96%
+
+- proc_redteam_zone_chunk_5.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 12.30%
+  End-only total: 2401
+  End-only redteam-related %: 23.53%
+  Aggregated total: 1121
+  Aggregated redteam-related %: 23.55%
+
+- proc_redteam_zone_chunk_6.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 12.06%
+  End-only total: 2405
+  End-only redteam-related %: 23.28%
+  Aggregated total: 1102
+  Aggregated redteam-related %: 21.78%
+
+- proc_redteam_zone_chunk_7.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 12.57%
+  End-only total: 2638
+  End-only redteam-related %: 22.44%
+  Aggregated total: 1191
+  Aggregated redteam-related %: 20.91%
+
+- proc_redteam_zone_chunk_8.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 13.87%
+  End-only total: 2516
+  End-only redteam-related %: 26.23%
+  Aggregated total: 1125
+  Aggregated redteam-related %: 22.04%
+
+Overall averages:
+- Average baseline redteam-related %: 11.72%
+- Average end-only redteam-related %: 22.83%
+- Average aggregated redteam-related %: 21.32%
+
+Best observed values:
+- Best end-only chunk: proc_redteam_zone_chunk_8.txt (26.23%)
+- Best aggregated chunk: proc_redteam_zone_chunk_5.txt (23.55%)
+
+Interpretation:
+Across eight proc redteam-zone chunks, the End-only strategy consistently increased the concentration of redteam-related context compared with the raw baseline.
+After aggregation, the redteam-related proportion remained clearly higher than baseline, which supports PROC as a strong exploratory extension rather than a main prototype path.
+
+
+============================================================
+DNS Decision Summary
+============================================================
+
+DNS Decision Summary
+========================================
+
+Initial exploration results:
+- The dns.txt file was successfully read.
+- The explored sample showed 3 columns only.
+- No missing values were observed in the tested sample.
+- The first column appears temporal, while the other two columns appear to be computer-like identifiers.
+
+Redteam-aligned sample findings:
+- A DNS sample was extracted near the beginning of redteam activity.
+- The selected dns_redteam_sample covered timestamps 150881 -> 167943.
+- Almost all rows in the sample fell inside the redteam time range.
+- Computer overlap with redteam was observed.
+- However, no direct src/dst computer pair matches were found against the redteam file.
+
+Decision:
+The DNS file will not be adopted as a primary or strong secondary input source in the current prototype stage.
+
+Reasoning:
+- Authentication data remains the most semantically rich and analytically useful source for the current project goal.
+- Process data showed a stronger exploratory signal than DNS when evaluated with redteam-aligned samples.
+- Although DNS overlaps temporally with redteam and shares some computers, it did not provide direct pair-level evidence in the explored sample.
+- Therefore, DNS is considered weaker than both auth and proc for the current prototype scope.
+
+Conclusion:
+In the current phase, dns is treated as an explored but non-adopted source. It remains a possible future extension, but not a component of the implemented prototype.
+
+
+============================================================
+FLOWS 8-Chunks Summary
+============================================================
+
+FLOWS 8-Chunks Summary
+========================================
+
+Exploration goal:
+Evaluate whether a generalizable preprocessing strategy can improve the concentration of redteam-related context across multiple network-flow chunks.
+
+Selected strategy:
+- Filtering: duration > 0
+- Aggregation key: destination_computer + protocol
+
+Number of tested chunks: 8
+
+Per-chunk results:
+- flows_redteam_zone_chunk_1.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 39.14%
+  Duration-only total: 3693
+  Duration-only redteam-related %: 43.38%
+  Aggregated total: 1038
+  Aggregated redteam-related %: 42.87%
+
+- flows_redteam_zone_chunk_2.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 41.29%
+  Duration-only total: 3510
+  Duration-only redteam-related %: 47.01%
+  Aggregated total: 937
+  Aggregated redteam-related %: 45.36%
+
+- flows_redteam_zone_chunk_3.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 40.67%
+  Duration-only total: 4032
+  Duration-only redteam-related %: 41.89%
+  Aggregated total: 1137
+  Aggregated redteam-related %: 39.31%
+
+- flows_redteam_zone_chunk_4.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 18.73%
+  Duration-only total: 1563
+  Duration-only redteam-related %: 43.57%
+  Aggregated total: 466
+  Aggregated redteam-related %: 43.78%
+
+- flows_redteam_zone_chunk_5.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 38.79%
+  Duration-only total: 3813
+  Duration-only redteam-related %: 45.66%
+  Aggregated total: 994
+  Aggregated redteam-related %: 43.16%
+
+- flows_redteam_zone_chunk_6.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 36.34%
+  Duration-only total: 4029
+  Duration-only redteam-related %: 43.44%
+  Aggregated total: 1050
+  Aggregated redteam-related %: 41.14%
+
+- flows_redteam_zone_chunk_7.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 39.98%
+  Duration-only total: 4171
+  Duration-only redteam-related %: 45.05%
+  Aggregated total: 1056
+  Aggregated redteam-related %: 43.28%
+
+- flows_redteam_zone_chunk_8.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 37.62%
+  Duration-only total: 3498
+  Duration-only redteam-related %: 48.54%
+  Aggregated total: 899
+  Aggregated redteam-related %: 46.38%
+
+Overall averages:
+- Average baseline redteam-related %: 36.57%
+- Average duration-only redteam-related %: 44.82%
+- Average aggregated redteam-related %: 43.16%
+
+Best observed values:
+- Best duration-only chunk: flows_redteam_zone_chunk_8.txt (48.54%)
+- Best aggregated chunk: flows_redteam_zone_chunk_8.txt (46.38%)
+
+Interpretation:
+A duration-based filtering rule consistently improved the concentration of redteam-related context across eight flows chunks.
+Aggregation by destination_computer and protocol remained effective across the tested chunks and produced stronger evidence than the earlier 3-chunk exploratory result.
+
+Decision:
+FLOWS is treated as a strong exploratory extension in the current prototype stage.

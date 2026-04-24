@@ -1,0 +1,30 @@
+Data Source Comparison Summary
+========================================
+
+Source: auth
+- Role: main prototype path
+- Status: adopted
+- Key strategy: improved filtering + relaxed temporal aggregation
+- Strength: strongest
+- Reason: Provided the clearest end-to-end pre-correlation pipeline, repeated reduction in correlation outputs, and stable preservation of redteam-related context.
+
+Source: proc
+- Role: exploratory extension
+- Status: strong exploratory extension
+- Key strategy: End-only filtering
+- Strength: high
+- Reason: Showed repeated gains in redteam-related concentration across multiple chunks, but remained secondary to auth.
+
+Source: flows
+- Role: exploratory extension
+- Status: strong exploratory extension
+- Key strategy: duration > 0 + aggregation by destination_computer and protocol
+- Strength: high
+- Reason: Showed repeated gains in redteam-related concentration across eight chunks with a generalizable filtering rule, but remained less mature than auth.
+
+Source: dns
+- Role: exploratory source
+- Status: not adopted
+- Key strategy: not selected
+- Strength: low
+- Reason: Had temporal overlap and computer overlap, but did not provide strong enough direct evidence in the explored sample.

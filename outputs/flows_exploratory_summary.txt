@@ -1,0 +1,52 @@
+FLOWS Exploratory Summary
+========================================
+
+Exploration goal:
+Evaluate whether a generalizable preprocessing strategy can improve the concentration of redteam-related context in network-flow data.
+
+Selected strategy:
+- Filtering: duration > 0
+- Aggregation key: destination_computer + protocol
+
+Number of tested chunks: 3
+
+Per-chunk results:
+- flows_redteam_zone_chunk_1.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 39.14%
+  Duration-only total: 3693
+  Duration-only redteam-related %: 43.38%
+  Aggregated total: 1038
+  Aggregated redteam-related %: 42.87%
+
+- flows_redteam_zone_chunk_2.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 41.29%
+  Duration-only total: 3510
+  Duration-only redteam-related %: 47.01%
+  Aggregated total: 937
+  Aggregated redteam-related %: 45.36%
+
+- flows_redteam_zone_chunk_3.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 40.67%
+  Duration-only total: 4032
+  Duration-only redteam-related %: 41.89%
+  Aggregated total: 1137
+  Aggregated redteam-related %: 39.31%
+
+Overall averages:
+- Average baseline redteam-related %: 40.37%
+- Average duration-only redteam-related %: 44.09%
+- Average aggregated redteam-related %: 42.51%
+
+Best observed values:
+- Best duration-only chunk: flows_redteam_zone_chunk_2.txt (47.01%)
+- Best aggregated chunk: flows_redteam_zone_chunk_2.txt (45.36%)
+
+Interpretation:
+A duration-based filtering rule improved the concentration of redteam-related context across the tested flows chunks without relying on a protocol-specific assumption.
+Aggregation by destination_computer and protocol remained useful in some chunks, but showed less stability than the proc extension.
+
+Decision:
+FLOWS is treated as an exploratory extension. It is more promising than DNS, but less mature than AUTH and PROC in the current prototype stage.

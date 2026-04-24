@@ -1,0 +1,4 @@
+file_name,normalized_total,normalized_redteam_related,normalized_redteam_pct,aggregated_total,aggregated_redteam_related,aggregated_redteam_pct,redteam_pct_change
+auth_sample_late.txt,10000,7315,73.15,9439,6859,72.67,-0.48
+auth_sample_chunk2.txt,10000,7712,77.12,9508,7302,76.8,-0.32
+auth_sample_chunk3.txt,10000,6868,68.68,9371,6504,69.41,0.73

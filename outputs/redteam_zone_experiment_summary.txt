@@ -1,0 +1,90 @@
+Redteam-Zone Experiment Summary
+========================================
+
+Number of tested chunks: 8
+
+Per-chunk results:
+- auth_redteam_zone_chunk_1.txt
+  Input events: 10000
+  After filter: 9556
+  After aggregation: 9476
+  Event reduction: 80 (0.84%)
+  Correlation before: 350
+  Correlation after: 322
+  Correlation change: -28 (-8.00%)
+
+- auth_redteam_zone_chunk_2.txt
+  Input events: 10000
+  After filter: 9615
+  After aggregation: 9534
+  Event reduction: 81 (0.84%)
+  Correlation before: 313
+  Correlation after: 295
+  Correlation change: -18 (-5.75%)
+
+- auth_redteam_zone_chunk_3.txt
+  Input events: 10000
+  After filter: 9467
+  After aggregation: 9401
+  Event reduction: 66 (0.70%)
+  Correlation before: 280
+  Correlation after: 267
+  Correlation change: -13 (-4.64%)
+
+- auth_redteam_zone_chunk_4.txt
+  Input events: 10000
+  After filter: 9600
+  After aggregation: 9549
+  Event reduction: 51 (0.53%)
+  Correlation before: 259
+  Correlation after: 247
+  Correlation change: -12 (-4.63%)
+
+- auth_redteam_zone_chunk_5.txt
+  Input events: 10000
+  After filter: 9408
+  After aggregation: 9355
+  Event reduction: 53 (0.56%)
+  Correlation before: 313
+  Correlation after: 296
+  Correlation change: -17 (-5.43%)
+
+- auth_redteam_zone_chunk_6.txt
+  Input events: 10000
+  After filter: 9454
+  After aggregation: 9406
+  Event reduction: 48 (0.51%)
+  Correlation before: 362
+  Correlation after: 350
+  Correlation change: -12 (-3.31%)
+
+- auth_redteam_zone_chunk_7.txt
+  Input events: 10000
+  After filter: 9588
+  After aggregation: 9532
+  Event reduction: 56 (0.58%)
+  Correlation before: 371
+  Correlation after: 357
+  Correlation change: -14 (-3.77%)
+
+- auth_redteam_zone_chunk_8.txt
+  Input events: 10000
+  After filter: 9532
+  After aggregation: 9482
+  Event reduction: 50 (0.52%)
+  Correlation before: 278
+  Correlation after: 264
+  Correlation change: -14 (-5.04%)
+
+Overall averages:
+- Average event reduction: 0.64%
+- Average correlation change: -5.07%
+
+Best observed reductions:
+- Strongest event reduction: auth_redteam_zone_chunk_1.txt (0.84%)
+- Strongest correlation reduction: auth_redteam_zone_chunk_1.txt (-8.00%)
+
+Interpretation:
+Across eight redteam-zone authentication chunks, the selected pre-correlation pipeline consistently reduced the event stream.
+This was repeatedly followed by reductions in baseline correlation outputs.
+These results strengthen the evidence that the chosen pipeline improves stream compactness before downstream correlation in redteam-relevant regions of the LANL data.

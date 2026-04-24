@@ -1,0 +1,10 @@
+strategy,total_rows,redteam_related_rows,redteam_related_pct
+baseline_raw,10000,1063,10.63
+start_only,7671,562,7.33
+start_only__agg_user_computer_process,5607,321,5.72
+start_only__agg_computer_process,5596,320,5.72
+end_only,2329,501,21.51
+end_only__agg_user_computer_process,1193,248,20.79
+end_only__agg_computer_process,1177,243,20.65
+all_events__agg_user_computer_process,5883,379,6.44
+all_events__agg_computer_process,5782,349,6.04

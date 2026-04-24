@@ -1,0 +1,10 @@
+strategy,total_rows,redteam_related_rows,redteam_related_pct
+baseline_raw,10000,3914,39.14
+dedup_only,10000,3914,39.14
+agg_src_dst_protocol,6126,2023,33.02
+protocol6_only,8637,3153,36.51
+protocol6__agg_src_dst_protocol,5032,1437,28.56
+duration_gt_0,3693,1602,43.38
+duration_gt_0__agg_src_dst_protocol,2404,918,38.19
+protocol6_and_duration_gt_0,3440,1576,45.81
+protocol6_and_duration_gt_0__agg_src_dst_protocol,2206,894,40.53
