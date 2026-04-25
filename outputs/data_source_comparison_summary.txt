@@ -23,8 +23,8 @@ Source: flows
 - Reason: Showed repeated gains in redteam-related concentration across eight chunks with a generalizable filtering rule, but remained less mature than auth.
 
 Source: dns
-- Role: exploratory source
-- Status: not adopted
-- Key strategy: not selected
-- Strength: low
-- Reason: Had temporal overlap and computer overlap, but did not provide strong enough direct evidence in the explored sample.
+- Role: exploratory extension
+- Status: exploratory extension
+- Key strategy: aggregation by source_computer + destination_computer
+- Strength: moderate
+- Reason: Showed high redteam-related concentration across multiple chunks and remained useful after source-destination aggregation, though still less mature than auth, proc, and flows.

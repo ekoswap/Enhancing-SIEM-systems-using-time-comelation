@@ -14,6 +14,7 @@ proc_end_only_summary_path = output_dir / "proc_end_only_8chunks_summary.txt"
 dns_decision_summary_path = output_dir / "dns_decision_summary.txt"
 flows_exploration_summary_path = output_dir / "flows_exploratory_summary.txt"
 flows_8chunks_summary_path = output_dir / "flows_8chunks_summary.txt"
+dns_3chunks_summary_path = output_dir / "dns_3chunks_summary.txt"
 
 master_summary_path = output_dir / "master_project_summary.txt"
 
@@ -29,6 +30,7 @@ sections = [
     ("PROC End-Only 8-Chunks Summary", proc_end_only_summary_path),
     ("DNS Decision Summary", dns_decision_summary_path),
     ("FLOWS 8-Chunks Summary", flows_8chunks_summary_path),
+    ("DNS 3-Chunks Summary", dns_3chunks_summary_path),
 ]
 
 lines = [

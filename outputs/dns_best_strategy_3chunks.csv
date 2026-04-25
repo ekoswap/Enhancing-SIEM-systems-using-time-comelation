@@ -1,0 +1,4 @@
+file_name,baseline_total,baseline_redteam_pct,agg_total,agg_redteam_pct
+dns_redteam_zone_chunk_1.txt,10000,62.55,2457,64.71
+dns_redteam_zone_chunk_2.txt,10000,71.98,1868,64.72
+dns_redteam_zone_chunk_3.txt,10000,61.98,2996,62.35

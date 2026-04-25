@@ -633,3 +633,52 @@ Aggregation by destination_computer and protocol remained effective across the t
 
 Decision:
 FLOWS is treated as a strong exploratory extension in the current prototype stage.
+
+
+============================================================
+DNS 3-Chunks Summary
+============================================================
+
+DNS 3-Chunks Summary
+========================================
+
+Exploration goal:
+Evaluate whether DNS communication aggregation can preserve or improve the concentration of redteam-related context across multiple chunks.
+
+Selected strategy:
+- Aggregation key: source_computer + destination_computer
+
+Number of tested chunks: 3
+
+Per-chunk results:
+- dns_redteam_zone_chunk_1.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 62.55%
+  Aggregated total: 2457
+  Aggregated redteam-related %: 64.71%
+
+- dns_redteam_zone_chunk_2.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 71.98%
+  Aggregated total: 1868
+  Aggregated redteam-related %: 64.72%
+
+- dns_redteam_zone_chunk_3.txt
+  Baseline total: 10000
+  Baseline redteam-related %: 61.98%
+  Aggregated total: 2996
+  Aggregated redteam-related %: 62.35%
+
+Overall averages:
+- Average baseline redteam-related %: 65.50%
+- Average aggregated redteam-related %: 63.93%
+
+Best observed value:
+- Best aggregated chunk: dns_redteam_zone_chunk_2.txt (64.72%)
+
+Interpretation:
+DNS aggregation by source and destination computer preserved a high concentration of redteam-related context across the tested chunks.
+This suggests that DNS can serve as an exploratory extension, although its role remains less central than the auth-based main path.
+
+Decision:
+DNS is treated as an exploratory extension in the current prototype stage.

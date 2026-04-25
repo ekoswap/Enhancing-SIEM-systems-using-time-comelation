@@ -30,12 +30,12 @@ rows = [
         "reason": "Showed repeated gains in redteam-related concentration across eight chunks with a generalizable filtering rule, but remained less mature than auth."
     },
     {
-        "source": "dns",
-        "role": "exploratory source",
-        "status": "not adopted",
-        "key_strategy": "not selected",
-        "strength": "low",
-        "reason": "Had temporal overlap and computer overlap, but did not provide strong enough direct evidence in the explored sample."
+    "source": "dns",
+    "role": "exploratory extension",
+    "status": "exploratory extension",
+    "key_strategy": "aggregation by source_computer + destination_computer",
+    "strength": "moderate",
+    "reason": "Showed high redteam-related concentration across multiple chunks and remained useful after source-destination aggregation, though still less mature than auth, proc, and flows."
     },
 ]
 
