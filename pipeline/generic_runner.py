@@ -10,6 +10,7 @@ from pipeline.common import (
     summarize_redteam_ratio,
 )
 from pipeline.source_registry import SOURCE_REGISTRY
+from pipeline.auth_preparation import prepare_auth_dataframe
 
 
 REDTEAM_PATH = Path("data/raw/redteam.txt")
@@ -27,6 +28,15 @@ def load_redteam_context():
     redteam_users = set(redteam_df["user"].astype(str).unique())
 
     return redteam_src, redteam_dst, redteam_users
+
+
+def prepare_source_dataframe(source_name: str, data_path: str | Path):
+    config = SOURCE_REGISTRY[source_name]
+
+    if config.get("preparation_fn") == "prepare_auth_dataframe":
+        return prepare_auth_dataframe(data_path)
+
+    return load_csv(data_path, config["columns"])
 
 
 def apply_redteam_marking(df: pd.DataFrame, config: dict) -> pd.DataFrame:
@@ -51,18 +61,24 @@ def apply_redteam_marking(df: pd.DataFrame, config: dict) -> pd.DataFrame:
 
     raise ValueError(f"Unsupported match_mode: {config['match_mode']}")
 
+
+def can_remark_after_aggregation(df: pd.DataFrame, config: dict) -> bool:
+    if config["match_mode"] == "pair":
+        return config["src_col"] in df.columns and config["dst_col"] in df.columns
+
+    if config["match_mode"] == "multi":
+        return all(col in df.columns for col in config["match_columns"])
+
+    return False
+
+
 def run_source(source_name: str, data_path: str | Path):
     config = SOURCE_REGISTRY[source_name]
 
-    print(f"\n=== {source_name.upper()} ===")
-
-    if config.get("requires_preparation", False):
-        print("Skipped in generic runner: this source requires a preparation/normalization stage before generic pipeline steps.")
-        return
-
-    df = load_csv(data_path, config["columns"])
+    df = prepare_source_dataframe(source_name, data_path)
     baseline = apply_redteam_marking(df, config)
 
+    print(f"\n=== {source_name.upper()} ===")
     print("Baseline:", summarize_redteam_ratio(baseline))
 
     current = baseline
@@ -77,7 +93,12 @@ def run_source(source_name: str, data_path: str | Path):
 
     if config["aggregate_fn"] is not None:
         current = config["aggregate_fn"](current)
+
+        if can_remark_after_aggregation(current, config):
+            current = apply_redteam_marking(current, config)
+
         print("Aggregated:", summarize_redteam_ratio(current))
+
 
 if __name__ == "__main__":
     run_source("dns", "data/raw/dns_redteam_sample.txt")
