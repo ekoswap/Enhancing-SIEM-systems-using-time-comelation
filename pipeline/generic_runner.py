@@ -72,24 +72,53 @@ def can_remark_after_aggregation(df: pd.DataFrame, config: dict) -> bool:
     return False
 
 
-def run_source(source_name: str, data_path: str | Path):
+def run_source(source_name: str, data_path: str | Path) -> dict:
     config = SOURCE_REGISTRY[source_name]
 
     df = prepare_source_dataframe(source_name, data_path)
     baseline = apply_redteam_marking(df, config)
 
+    baseline_summary = summarize_redteam_ratio(baseline)
+
+    result = {
+        "source": source_name,
+        "data_path": str(data_path),
+        "baseline_total_rows": baseline_summary["total_rows"],
+        "baseline_redteam_rows": baseline_summary["redteam_related_rows"],
+        "baseline_redteam_pct": baseline_summary["redteam_related_pct"],
+        "filtered_total_rows": None,
+        "filtered_redteam_rows": None,
+        "filtered_redteam_pct": None,
+        "deduplicated_total_rows": None,
+        "deduplicated_redteam_rows": None,
+        "deduplicated_redteam_pct": None,
+        "aggregated_total_rows": None,
+        "aggregated_redteam_rows": None,
+        "aggregated_redteam_pct": None,
+    }
+
     print(f"\n=== {source_name.upper()} ===")
-    print("Baseline:", summarize_redteam_ratio(baseline))
+    print("Baseline:", baseline_summary)
 
     current = baseline
 
     if config["filter_fn"] is not None:
         current = config["filter_fn"](current)
-        print("Filtered:", summarize_redteam_ratio(current))
+        filtered_summary = summarize_redteam_ratio(current)
+        print("Filtered:", filtered_summary)
+
+        result["filtered_total_rows"] = filtered_summary["total_rows"]
+        result["filtered_redteam_rows"] = filtered_summary["redteam_related_rows"]
+        result["filtered_redteam_pct"] = filtered_summary["redteam_related_pct"]
 
     if config["dedup_fn"] is not None:
         current = config["dedup_fn"](current)
-        print("Deduplicated:", summarize_redteam_ratio(current))
+        dedup_summary = summarize_redteam_ratio(current)
+        print("Deduplicated:", dedup_summary)
+
+        result["deduplicated_total_rows"] = dedup_summary["total_rows"]
+        result["deduplicated_redteam_rows"] = dedup_summary["redteam_related_rows"]
+        result["deduplicated_redteam_pct"] = dedup_summary["redteam_related_pct"]
 
     if config["aggregate_fn"] is not None:
         current = config["aggregate_fn"](current)
@@ -97,11 +126,30 @@ def run_source(source_name: str, data_path: str | Path):
         if can_remark_after_aggregation(current, config):
             current = apply_redteam_marking(current, config)
 
-        print("Aggregated:", summarize_redteam_ratio(current))
+        aggregated_summary = summarize_redteam_ratio(current)
+        print("Aggregated:", aggregated_summary)
+
+        result["aggregated_total_rows"] = aggregated_summary["total_rows"]
+        result["aggregated_redteam_rows"] = aggregated_summary["redteam_related_rows"]
+        result["aggregated_redteam_pct"] = aggregated_summary["redteam_related_pct"]
+
+    return result
+
+
+def run_all_sources() -> list[dict]:
+    source_inputs = [
+        ("dns", "data/raw/dns_redteam_sample.txt"),
+        ("flows", "data/raw/flows_redteam_sample.txt"),
+        ("proc", "data/raw/proc_redteam_sample.txt"),
+        ("auth", "data/raw/auth_sample_late.txt"),
+    ]
+
+    results = []
+    for source_name, data_path in source_inputs:
+        results.append(run_source(source_name, data_path))
+
+    return results
 
 
 if __name__ == "__main__":
-    run_source("dns", "data/raw/dns_redteam_sample.txt")
-    run_source("flows", "data/raw/flows_redteam_sample.txt")
-    run_source("proc", "data/raw/proc_redteam_sample.txt")
-    run_source("auth", "data/raw/auth_sample_late.txt")
+    run_all_sources()

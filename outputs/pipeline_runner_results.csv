@@ -1,0 +1,5 @@
+source,data_path,baseline_total_rows,baseline_redteam_rows,baseline_redteam_pct,filtered_total_rows,filtered_redteam_rows,filtered_redteam_pct,deduplicated_total_rows,deduplicated_redteam_rows,deduplicated_redteam_pct,aggregated_total_rows,aggregated_redteam_rows,aggregated_redteam_pct
+dns,data/raw/dns_redteam_sample.txt,10000,6255,62.55,,,,,,,2457,1590,64.71
+flows,data/raw/flows_redteam_sample.txt,10000,3914,39.14,3693.0,1602.0,43.38,,,,1038,445,42.87
+proc,data/raw/proc_redteam_sample.txt,10000,1063,10.63,2329.0,501.0,21.51,,,,1177,243,20.65
+auth,data/raw/auth_sample_late.txt,10000,7315,73.15,9519.0,6917.0,72.67,9519.0,6917.0,72.67,9439,6859,72.67
